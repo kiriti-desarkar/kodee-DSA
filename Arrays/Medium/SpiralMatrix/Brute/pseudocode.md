@@ -1,4 +1,4 @@
-# R1 Brute: walk and turn (direction + visited grid)
+# R1 Brute: SnakeBot v1, look ahead and turn (direction + visited grid)
 ```
 rows = matrix.length; cols = matrix[0].length
 result = []; visited = grid of false
@@ -17,4 +17,4 @@ Derivation (blank mind): be a robot with a finger on the grid; go right until yo
 Proof: each step prints one new cell, never a visited one; after a turn a free neighbour exists until all cells are printed, so exactly m*n steps print each cell once. The outside test comes first so visited is never read out of range.
 Complexity: O(m*n) time, O(m*n) extra (visited) plus the output.
 Dry run (clock paused) on [[1,2,3],[4,5,6]]: 1, 2, 3, off grid -> down, 6, off grid -> left, 5, 4 -> [1,2,3,6,5,4].
-Code dry run on 3x4: 1,2,3,4 turn down; 8,12 turn left; 11,10,9 turn up; 5 (next is the visited 1) turn right; 6,7 -> 12 steps, matches.
+Code dry run on [[1,2,3,4],[10,11,12,5],[9,8,7,6]]: 1,2,3,4 turn down; 5,6 turn left; 7,8,9 turn up; 10 (next is the visited 1) turn right; 11,12 -> 12 steps, 1 to 12, matches.
