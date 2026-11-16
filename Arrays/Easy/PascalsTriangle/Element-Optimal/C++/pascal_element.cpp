@@ -3,8 +3,8 @@ using namespace std;
 
 long long pascalElement(int row, int col) {
     long long ans = 1;
-    for (int i = 1; i < col; i++) {
-        ans = ans * (row - i) / i;
+    for (int step = 1; step < col; step++) {
+        ans = ans * (row - step) / step;
     }
     return ans;
 }

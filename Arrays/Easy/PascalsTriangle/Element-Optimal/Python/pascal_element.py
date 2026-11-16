@@ -3,8 +3,8 @@ import json
 
 def pascal_element(row, col):
     ans = 1
-    for i in range(1, col):
-        ans = ans * (row - i) // i
+    for step in range(1, col):
+        ans = ans * (row - step) // step
     return ans
 
 

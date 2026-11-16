@@ -16,7 +16,7 @@ LeetCode 118: `numRows = 5` -> `[[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]`.
 | Folder | Question | Approach | Time | Extra space |
 |---|---|---|---|---|
 | `Element-Brute/` | The number at (row, col) | n C r with factorials. Right on paper, but `long` breaks at 21!: row 22, column 2 prints -1 in Java | O(row) | O(1) |
-| `Element-Optimal/` | The number at (row, col) | `ans = ans * (row - i) / i`, multiply first, then divide | O(col) | O(1) |
+| `Element-Optimal/` | The number at (row, col) | `ans = ans * (row - step) / step`, multiply first, then divide | O(col) | O(1) |
 | `Row-Optimal/` | One whole row (LeetCode 119 style) | Walk along the row: `ans = ans * (row - col) / col` | O(row) | O(1) (the answer list is not counted) |
 | `Triangle-Optimal/` | The whole triangle (LeetCode 118) | Add the two above, 1 at both ends | O(n^2) | O(1) (the answer is not counted) |
 | `Triangle-RowFormula/` | The whole triangle (LeetCode 118) | Call the row formula for every row | O(n^2) | O(1) (the answer is not counted) |

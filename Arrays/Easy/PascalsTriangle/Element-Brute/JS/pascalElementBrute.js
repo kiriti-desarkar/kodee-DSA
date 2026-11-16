@@ -2,8 +2,8 @@
 // JavaScript numbers are doubles: factorials lose exactness long before they run out of range.
 function factorial(n) {
     let result = 1;
-    for (let i = 2; i <= n; i++) {
-        result = result * i;
+    for (let factor = 2; factor <= n; factor++) {
+        result = result * factor;
     }
     return result;
 }

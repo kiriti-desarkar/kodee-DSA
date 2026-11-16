@@ -5,8 +5,8 @@ public class PascalElementBrute {
     // int breaks at 13!, long breaks at 21! (so row 22 already gives a wrong answer).
     static long factorial(int n) {
         long result = 1;
-        for (int i = 2; i <= n; i++) {
-            result = result * i;
+        for (int factor = 2; factor <= n; factor++) {
+            result = result * factor;
         }
         return result;
     }

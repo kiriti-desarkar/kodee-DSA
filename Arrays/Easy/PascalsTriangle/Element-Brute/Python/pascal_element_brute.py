@@ -5,8 +5,8 @@ import json
 # Python integers never overflow, so this stays correct, but the numbers get huge and slow.
 def factorial(n):
     result = 1
-    for i in range(2, n + 1):
-        result = result * i
+    for factor in range(2, n + 1):
+        result = result * factor
     return result
 
 

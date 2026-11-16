@@ -1,7 +1,7 @@
 function pascalElement(row, col) {
     let ans = 1;
-    for (let i = 1; i < col; i++) {
-        ans = ans * (row - i) / i;
+    for (let step = 1; step < col; step++) {
+        ans = ans * (row - step) / step;
     }
     return ans;
 }
