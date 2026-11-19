@@ -2,14 +2,16 @@ function rotate(matrix) {
     const size = matrix.length;
     for (let row = 0; row < size; row++) {
         for (let col = row + 1; col < size; col++) {
-            [matrix[row][col], matrix[col][row]] = [matrix[col][row], matrix[row][col]];
+            [matrix[row][col], matrix[col][row]] =
+                [matrix[col][row], matrix[row][col]];
         }
     }
     for (let row = 0; row < size; row++) {
         let left = 0;
         let right = size - 1;
         while (left < right) {
-            [matrix[row][left], matrix[row][right]] = [matrix[row][right], matrix[row][left]];
+            [matrix[row][left], matrix[row][right]] =
+                [matrix[row][right], matrix[row][left]];
             left++;
             right--;
         }

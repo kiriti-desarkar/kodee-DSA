@@ -14,6 +14,9 @@ Rotate an n x n matrix 90 degrees clockwise, **in place**.
 |---|---|---|---|
 | `Brute-NewGrid/` | Follow one cell: `ans[col][size-1-row] = matrix[row][col]`, then copy `ans` back row by row | O(n^2) | O(n^2) |
 | `Optimal-TransposeReverse/` | Swap across the diagonal (transpose), then reverse each row with two pointers | O(n^2) | O(1) |
+| `FollowUp-Anticlockwise/` | Transpose, then reverse each **column** (top and bottom move inward) | O(n^2) | O(1) |
+| `FollowUp-Rotate180/` | Reverse each row, then reverse the order of the rows (swap whole rows) | O(n^2) | O(1) |
+| `FollowUp-Rectangle/` | New cols x rows grid: `ans[col][rows-1-row] = matrix[row][col]` (cannot be in place) | O(rows x cols) | O(rows x cols) |
 | `Layers-FourWaySwap/` | Spin each ring (the same rings as Spiral Matrix) with a 4-way swap | O(n^2) | O(1) |
 
 ## Rebuild it
