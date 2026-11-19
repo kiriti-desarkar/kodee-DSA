@@ -1,0 +1,24 @@
+# Rebuilds learnwithkiriti.com whenever solutions change here.
+# The Cloudflare Pages deploy hook URL is stored as the repository secret CF_PAGES_DEPLOY_HOOK
+# (Settings -> Secrets and variables -> Actions). Never paste the URL into this file: the repo is public.
+name: Redeploy website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages build
+        env:
+          HOOK: ${{ secrets.CF_PAGES_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "CF_PAGES_DEPLOY_HOOK secret is not set; skipping."
+            exit 0
+          fi
+          curl -fsS -X POST "$HOOK" -o /dev/null
+          echo "Website rebuild triggered."
