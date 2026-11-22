@@ -1,17 +1,31 @@
-# Set Matrix Zeroes
+# Set Matrix Zeroes (online-test style)
 
-Video: "Set Matrix Zeroes (episode 15)" on LearnWithKiriti (Kodee). LeetCode [73](https://leetcode.com/problems/set-matrix-zeroes/).
+Video: "Set Matrix Zeroes" on LearnWithKiriti (Kodee and Mr. Tock). Arrays series, episode 15. LeetCode 73, Medium.
+Taught as an **online coding test**: a clock per round (5:00, 5:00, then 8:00), thinking time counts, and the optimal grows out of the better solution.
 
-Wherever the grid has a 0, set its whole row and its whole column to 0, in place. Only the zeros that were there at the start count.
-Example: `[[1, 1, 1], [1, 0, 1], [1, 1, 1]]` -> `[[1, 0, 1], [0, 0, 0], [1, 0, 1]]`
+If a cell is zero, set its whole row and column to zero, **in place**.
+```
+ 1  2  3  4        1  0  0  4
+ 5  0  7  8   ->   0  0  0  0
+ 9 10 11 12        9  0  0 12
+13 14  0 16        0  0  0  0
+```
 
 | Folder | Approach | Time | Extra space |
 |---|---|---|---|
-| `Brute-CopyTheGrid/` | Brute force: Copy the grid. Every 0 in the COPY wipes its row and its column in the real matrix, so new zeros never spread. | O(m·n·(m + n)) | O(m·n) extra (a copy of the grid) |
-| `Better-MarkerArrays/` | Better: Pass 1: mark the row and the column of every 0 in rowMark / colMark. Pass 2: a cell becomes 0 if its row or its column is marked. | O(m·n) | O(m + n) extra (rowMark + colMark) |
-| `Optimal-MarkInsideTheGrid/` | Optimal: Use row 0 and column 0 of the grid itself as the marker strips; two flags (rowZero, colZero) remember whether they had a 0 of their own. | O(m·n) | O(1) |
+| `Brute-CopyGrid/` | Read zeros from a copy, write zeros into `matrix` (across the row, down the column) | O(m·n·(m+n)) | O(m·n) |
+| `Better-MarkerArrays/` | `rowMark` (one boolean per row) + `colMark` (one per column), then fill | O(m·n) | O(m + n) |
+| `Optimal-MarkersInside/` | Markers live in column 0 and row 0; `rowZero` / `colZero` saved first; borders filled last | O(m·n) | O(1) |
 
 ## Rebuild it
-**Never zero as you go.** New zeros would spread and wipe the grid. First remember which rows and columns have a zero (a copy, then rowMark/colMark, then row 0 and column 0 of the grid itself), then fill.
+**Mark the borders. Fill the inside. Borders last.**
+- Zero as you go fails: new zeros look like old ones and spread. Never mark with -1: any int is a legal value.
+- The copy only answers "does this row have a zero?" and "does this column have a zero?": one boolean each is enough.
+- Column 0 has one cell per row, row 0 has one cell per column: slide `rowMark` and `colMark` inside.
+- A marker only writes a zero where the answer already has one. Inner cells are never touched.
+- Save `rowZero` and `colZero` first (real border zeros, and the corner `matrix[0][0]` sits in both lines).
+- Inner cells first, borders LAST. Filling row 0 first turns every column marker into zero and wipes the grid.
 
-See each folder's `pseudocode.md`. Every program runs Example 1 and prints the answer; the same code is in the practice panel's Start menu on learnwithkiriti.com, where Shelf Bot can act it out.
+Practise it on **learnwithkiriti.com** (sheet, notes, code in 4 languages, Shelf Bot animates your own code), or next to the video in the free Kodee Practice Chrome extension (link in the video description).
+
+See the `pseudocode.md` in each folder. Every program was compiled, run and tested (3x3, 3x4, 4x4, 1x1, 2x2, negatives, border zeros).
