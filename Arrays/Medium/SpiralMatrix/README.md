@@ -20,7 +20,7 @@ Why the two checks? After the top row and the right column, the walls may have c
 - `[[1],[2],[3]]` gives `[1,2,3,2]`
 - but the 3 x 3 example is still right, which is why the bug passes the sample and fails on submit.
 
-Play it: the SnakeBot game is in the free Kodee Practice Chrome extension (link in the video description).
+Play it: the SnakeBot game is in the Kodee Practice Chrome extension (link in the video description).
 
 Related: Spiral Matrix III (LeetCode 885) and Spiral Matrix IV (LeetCode 2326) use the same walk.
 

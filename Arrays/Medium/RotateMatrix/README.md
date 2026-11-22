@@ -34,6 +34,6 @@ Rotate an n x n matrix 90 degrees clockwise, **in place**.
 - 180 degrees: reverse each row, then reverse the order of the rows.
 - Rectangle (m x n): cannot be rotated in place. Build a new n x m grid: `ans[col][rows-1-row] = matrix[row][col]`.
 
-Practise it on **learnwithkiriti.com** (sheet, notes, code in 4 languages, run your own code), or next to the video in the free Kodee Practice Chrome extension (link in the video description).
+Practise it on **learnwithkiriti.com** (sheet, notes, code in 4 languages, run your own code), or next to the video in the Kodee Practice Chrome extension (link in the video description).
 
 See the `pseudocode.md` in each folder. Every program was compiled, run and tested (3x3, 4x4, 1x1, 2x2, 5x5).

@@ -26,6 +26,6 @@ If a cell is zero, set its whole row and column to zero, **in place**.
 - Save `rowZero` and `colZero` first (real border zeros, and the corner `matrix[0][0]` sits in both lines).
 - Inner cells first, borders LAST. Filling row 0 first turns every column marker into zero and wipes the grid.
 
-Practise it on **learnwithkiriti.com** (sheet, notes, code in 4 languages, Shelf Bot animates your own code), or next to the video in the free Kodee Practice Chrome extension (link in the video description).
+Practise it on **learnwithkiriti.com** (sheet, notes, code in 4 languages, Shelf Bot animates your own code), or next to the video in the Kodee Practice Chrome extension (link in the video description).
 
 See the `pseudocode.md` in each folder. Every program was compiled, run and tested (3x3, 3x4, 4x4, 1x1, 2x2, negatives, border zeros).

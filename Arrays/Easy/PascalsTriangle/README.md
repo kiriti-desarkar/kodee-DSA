@@ -30,7 +30,7 @@ Rows and columns count **from 1**, the way interviewers usually say them, so the
 - Overflow: with a 32-bit `int` and multiply-then-divide, row index 30 (the 31st row) is the first to overflow (145,422,675 x 16 = 2,326,762,800). LeetCode 118 stops at 30 rows (biggest number C(29,14) = 77,558,760), so `int` fits. For bigger rows, use `long`.
 - The whole triangle is O(n^2), and nothing can beat that: the answer itself has n(n+1)/2 numbers.
 
-Practise it next to the video: the free Kodee Practice Chrome extension (link in the video description).
+Practise it next to the video: the Kodee Practice Chrome extension (link in the video description).
 
 Related: Pascal's Triangle II (LeetCode 119) is exactly `Row-Optimal/`.
 
