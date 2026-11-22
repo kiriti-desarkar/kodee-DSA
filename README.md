@@ -31,9 +31,28 @@ Arrays/Easy/MajorityElement/
 
 | # | Problem | LeetCode | Folder | Approaches |
 |---|---|---|---|---|
-| 1 | Intersection of Two Sorted Arrays | [350](https://leetcode.com/problems/intersection-of-two-arrays-ii/) | [Arrays/Easy/IntersectionOf2SortedArrays](Arrays/Easy/IntersectionOf2SortedArrays) | Brute, Two Pointers, all follow-ups (including arrays on disk) |
-| 2 | Majority Element I | [169](https://leetcode.com/problems/majority-element/) | [Arrays/Easy/MajorityElement](Arrays/Easy/MajorityElement) | Brute, Hash Map, Bit Counting, Boyer-Moore Voting |
-| 3 | Merge Sort | - | [Sorting/MergeSort](Sorting/MergeSort) | Insertion Sort (bonus), Merge Sort |
+| 1 | Bubble Sort | - | [Sorting/BubbleSort](Sorting/BubbleSort) | All passes, shrink the end + stop early |
+| 2 | Selection Sort | - | [Sorting/SelectionSort](Sorting/SelectionSort) | Selection sort |
+| 3 | Insertion Sort | - | [Sorting/InsertionSort](Sorting/InsertionSort) | Swap into place, make room then insert |
+| 4 | Merge Sort | - | [Sorting/MergeSort](Sorting/MergeSort) | Insertion Sort (bonus), Merge Sort |
+| 5 | Quick Sort | - | [Sorting/QuickSort](Sorting/QuickSort) | Quick sort (last number as pivot) |
+| 6 | Sort an Array (revise all 5 sorts) | [912](https://leetcode.com/problems/sort-an-array/) | [Sorting/SortAnArray](Sorting/SortAnArray) | Bubble, Insertion, Merge |
+| 7 | Binary Search | [704](https://leetcode.com/problems/binary-search/) | [Searching/BinarySearch](Searching/BinarySearch) | Linear search, Binary search |
+| 8 | Max Consecutive Ones | [485](https://leetcode.com/problems/max-consecutive-ones/) | [Arrays/Easy/MaxConsecutiveOnes](Arrays/Easy/MaxConsecutiveOnes) | Brute, One pass |
+| 9 | Left Rotate Array by One | - | [Arrays/Easy/LeftRotateArrayByOne](Arrays/Easy/LeftRotateArrayByOne) | Temp array, In place |
+| 10 | Left Rotate Array by k Places | - (189 rotates right) | [Arrays/Medium/LeftRotateArrayByK](Arrays/Medium/LeftRotateArrayByK) | Rotate by one k times, Three reversals |
+| 11 | Move Zeros to End | [283](https://leetcode.com/problems/move-zeroes/) | [Arrays/Easy/MoveZerosToEnd](Arrays/Easy/MoveZerosToEnd) | Temp array, Two pointers |
+| 12 | Remove Duplicates from Sorted Array | [26](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) | [Arrays/Easy/RemoveDuplicatesFromSortedArray](Arrays/Easy/RemoveDuplicatesFromSortedArray) | Set, Two pointers |
+| 13 | Find the Missing Number | [268](https://leetcode.com/problems/missing-number/) | [Arrays/Easy/FindTheMissingNumber](Arrays/Easy/FindTheMissingNumber) | Brute, Seen array, Sum formula |
+| 14 | Union of Two Sorted Arrays | - | [Arrays/Easy/UnionOf2SortedArrays](Arrays/Easy/UnionOf2SortedArrays) | Sorted set, Two pointers |
+| 15 | Intersection of Two Sorted Arrays | [350](https://leetcode.com/problems/intersection-of-two-arrays-ii/) | [Arrays/Easy/IntersectionOf2SortedArrays](Arrays/Easy/IntersectionOf2SortedArrays) | Brute, Two Pointers, all follow-ups (including arrays on disk) |
+| 16 | Majority Element I | [169](https://leetcode.com/problems/majority-element/) | [Arrays/Easy/MajorityElement](Arrays/Easy/MajorityElement) | Brute, Hash Map, Bit Counting, Boyer-Moore Voting |
+| 17 | Leaders in an Array | - | [Arrays/Easy/LeadersInAnArray](Arrays/Easy/LeadersInAnArray) | Brute, Right to left |
+| 18 | Rearrange Array Elements by Sign | [2149](https://leetcode.com/problems/rearrange-array-elements-by-sign/) | [Arrays/Medium/RearrangeArrayElementsBySign](Arrays/Medium/RearrangeArrayElementsBySign) | Brute, Two write pointers, follow-ups |
+| 19 | Spiral Matrix | [54](https://leetcode.com/problems/spiral-matrix/) | [Arrays/Medium/SpiralMatrix](Arrays/Medium/SpiralMatrix) | Visited grid, Shrinking boundaries |
+| 20 | Pascal's Triangle | [118](https://leetcode.com/problems/pascals-triangle/) | [Arrays/Easy/PascalsTriangle](Arrays/Easy/PascalsTriangle) | One element, One row, Whole triangle |
+| 21 | Rotate Matrix by 90 Degrees | [48](https://leetcode.com/problems/rotate-image/) | [Arrays/Medium/RotateMatrix](Arrays/Medium/RotateMatrix) | Second grid, Transpose + reverse |
+| 22 | Set Matrix Zeroes | [73](https://leetcode.com/problems/set-matrix-zeroes/) | [Arrays/Medium/SetMatrixZeroes](Arrays/Medium/SetMatrixZeroes) | Copy, Marker arrays, Mark inside the grid |
 
 New problems are added after each episode is released.
 

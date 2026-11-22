@@ -23,11 +23,11 @@ vector<int> rearrangeBrute(vector<int>& nums) {
 
 void printList(const vector<int>& values) {
     cout << "[";
-    for (size_t i = 0; i < values.size(); i++) {
-        if (i > 0) {
+    for (size_t spot = 0; spot < values.size(); spot++) {
+        if (spot > 0) {
             cout << ", ";
         }
-        cout << values[i];
+        cout << values[spot];
     }
     cout << "]\n";
 }
