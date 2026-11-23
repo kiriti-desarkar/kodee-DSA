@@ -1,45 +1,31 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
     void selectionSort(vector<int>& nums) {
-        int size = nums.size();
-        for (int sortedEnd = 0; sortedEnd < size - 1; sortedEnd++) {
-            int minSpot = sortedEnd;
-            for (int scan = sortedEnd + 1; scan < size; scan++) {
-                if (nums[scan] < nums[minSpot]) {
-                    minSpot = scan;
+        // each pass selects the smallest of the rest and puts it at frontSlot
+        for (int frontSlot = 0; frontSlot < (int)nums.size() - 1; frontSlot++) {
+            int smallestSpot = frontSlot;
+            for (int candidate = frontSlot + 1; candidate < (int)nums.size(); candidate++) {
+                if (nums[candidate] < nums[smallestSpot]) {
+                    smallestSpot = candidate;
                 }
             }
-            if (minSpot != sortedEnd) {
-                swap(nums[sortedEnd], nums[minSpot]);
+            if (smallestSpot != frontSlot) {
+                swap(nums[frontSlot], nums[smallestSpot]);
             }
         }
     }
 };
 
-void print(const vector<int>& values) {
-    cout << "[";
-    for (size_t spot = 0; spot < values.size(); spot++) {
-        if (spot > 0) {
-            cout << ", ";
-        }
-        cout << values[spot];
-    }
-    cout << "]" << endl;
-}
-
-void print(const vector<vector<int>>& grid) {
-    for (const vector<int>& line : grid) {
-        print(line);
-    }
-}
-
+// Run it locally: g++ selection_sort_optimal.cpp -o selection && ./selection
 int main() {
-    Solution solver;
     vector<int> nums = {7, 2, 8, 1, 5};
-    solver.selectionSort(nums);
-    print(nums);
-    return 0;
+    Solution().selectionSort(nums);
+    for (int value : nums) {
+        cout << value << " ";
+    }
+    cout << endl;
 }

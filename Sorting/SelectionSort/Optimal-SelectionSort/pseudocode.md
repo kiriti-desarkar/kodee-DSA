@@ -1,20 +1,20 @@
 # Selection sort
 
-For each position sortedEnd, scan the rest for the smallest number (minSpot) and swap it in. At most n - 1 swaps: the fewest moves of the simple sorts.
+For each frontSlot, check every candidate in the rest, remember the smallest (smallestSpot), and swap it into frontSlot. At most n - 1 swaps: the fewest moves of the simple sorts.
 
 ```
-for sortedEnd from 0 to size - 2:
-    minSpot = sortedEnd
-    for scan from sortedEnd + 1 to size - 1:
-        if nums[scan] < nums[minSpot]:
-            minSpot = scan
-    if minSpot != sortedEnd:
-        swap nums[sortedEnd] and nums[minSpot]
+for frontSlot from 0 to size - 2:
+    smallestSpot = frontSlot
+    for candidate from frontSlot + 1 to size - 1:
+        if nums[candidate] < nums[smallestSpot]:
+            smallestSpot = candidate
+    if smallestSpot != frontSlot:
+        swap nums[frontSlot] and nums[smallestSpot]
 ```
 
 Dry run on Example 1:
 
-| sortedEnd | minSpot (value) | array after the swap |
+| frontSlot | smallestSpot (value) | array after the swap |
 |---|---|---|
 | 0 | 3 (1) | [1, 2, 8, 7, 5] |
 | 1 | 1 (2) | [1, 2, 8, 7, 5] (already in place, no swap) |
