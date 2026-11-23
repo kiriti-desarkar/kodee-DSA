@@ -1,47 +1,34 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
     void bubbleSort(vector<int>& nums) {
-        int end = nums.size() - 1;
-        while (end > 0) {
+        // after each pass, the biggest bubble rises to sortedEnd
+        for (int sortedEnd = nums.size() - 1; sortedEnd > 0; sortedEnd--) {
             bool swapped = false;
-            for (int scan = 0; scan < end; scan++) {
-                if (nums[scan] > nums[scan + 1]) {
-                    swap(nums[scan], nums[scan + 1]);
+            for (int currBubble = 0; currBubble < sortedEnd; currBubble++) {
+                int nextBubble = currBubble + 1;
+                if (nums[currBubble] > nums[nextBubble]) {
+                    swap(nums[currBubble], nums[nextBubble]);
                     swapped = true;
                 }
             }
+            // a pass with no swaps means the array is already sorted
             if (!swapped) {
                 break;
             }
-            end--;
         }
     }
 };
 
-void print(const vector<int>& values) {
-    cout << "[";
-    for (size_t spot = 0; spot < values.size(); spot++) {
-        if (spot > 0) {
-            cout << ", ";
-        }
-        cout << values[spot];
-    }
-    cout << "]" << endl;
-}
-
-void print(const vector<vector<int>>& grid) {
-    for (const vector<int>& line : grid) {
-        print(line);
-    }
-}
-
+// Run it locally: g++ bubble_sort_optimal.cpp -o bubble && ./bubble
 int main() {
-    Solution solver;
     vector<int> nums = {7, 2, 8, 1, 5};
-    solver.bubbleSort(nums);
-    print(nums);
-    return 0;
+    Solution().bubbleSort(nums);
+    for (int value : nums) {
+        cout << value << " ";
+    }
+    cout << endl;
 }

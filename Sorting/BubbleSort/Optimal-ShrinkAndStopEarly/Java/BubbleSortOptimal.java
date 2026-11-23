@@ -1,29 +1,34 @@
-import java.util.*;
-
-public class BubbleSortOptimal {
+class Solution {
     public void bubbleSort(int[] nums) {
-        int end = nums.length - 1;
-        while (end > 0) {
+        // after each pass, the biggest bubble rises to sortedEnd
+        for (int sortedEnd = nums.length - 1; sortedEnd > 0; sortedEnd--) {
             boolean swapped = false;
-            for (int scan = 0; scan < end; scan++) {
-                if (nums[scan] > nums[scan + 1]) {
-                    int held = nums[scan];
-                    nums[scan] = nums[scan + 1];
-                    nums[scan + 1] = held;
+            for (int currBubble = 0; currBubble < sortedEnd; currBubble++) {
+                int nextBubble = currBubble + 1;
+                if (nums[currBubble] > nums[nextBubble]) {
+                    swap(nums, currBubble, nextBubble);
                     swapped = true;
                 }
             }
+            // a pass with no swaps means the array is already sorted
             if (!swapped) {
                 break;
             }
-            end--;
         }
     }
 
+    private void swap(int[] nums, int left, int right) {
+        int held = nums[left];
+        nums[left] = nums[right];
+        nums[right] = held;
+    }
+}
+
+// Run it locally: javac BubbleSortOptimal.java && java Main
+class Main {
     public static void main(String[] args) {
-        BubbleSortOptimal solver = new BubbleSortOptimal();
-        int[] nums = new int[]{7, 2, 8, 1, 5};
-        solver.bubbleSort(nums);
-        System.out.println(Arrays.toString(nums));
+        int[] nums = {7, 2, 8, 1, 5};
+        new Solution().bubbleSort(nums);
+        System.out.println(java.util.Arrays.toString(nums));
     }
 }

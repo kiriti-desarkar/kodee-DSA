@@ -1,22 +1,22 @@
 function bubbleSort(nums) {
-    let end = nums.length - 1;
-    while (end > 0) {
+    // after each pass, the biggest bubble rises to sortedEnd
+    for (let sortedEnd = nums.length - 1; sortedEnd > 0; sortedEnd--) {
         let swapped = false;
-        for (let scan = 0; scan < end; scan++) {
-            if (nums[scan] > nums[scan + 1]) {
-                const held = nums[scan];
-                nums[scan] = nums[scan + 1];
-                nums[scan + 1] = held;
+        for (let currBubble = 0; currBubble < sortedEnd; currBubble++) {
+            const nextBubble = currBubble + 1;
+            if (nums[currBubble] > nums[nextBubble]) {
+                [nums[currBubble], nums[nextBubble]] = [nums[nextBubble], nums[currBubble]];
                 swapped = true;
             }
         }
+        // a pass with no swaps means the array is already sorted
         if (!swapped) {
             break;
         }
-        end--;
     }
 }
 
+// Run it locally: node bubbleSortOptimal.js
 const nums = [7, 2, 8, 1, 5];
 bubbleSort(nums);
-console.log(JSON.stringify(nums).replace(/,/g, ', '));
+console.log(nums);
