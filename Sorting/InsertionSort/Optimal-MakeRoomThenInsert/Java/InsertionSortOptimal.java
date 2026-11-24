@@ -1,23 +1,24 @@
-import java.util.*;
-
-public class InsertionSortOptimal {
+class Solution {
     public void insertionSort(int[] nums) {
-        int size = nums.length;
-        for (int next = 1; next < size; next++) {
-            int held = nums[next];
-            int slot = next;
-            while (slot > 0 && nums[slot - 1] > held) {
-                nums[slot] = nums[slot - 1];
-                slot--;
+        // everything left of newBookSpot is already sorted
+        for (int newBookSpot = 1; newBookSpot < nums.length; newBookSpot++) {
+            int newBook = nums[newBookSpot];
+            int gap = newBookSpot;
+            // shift every bigger book one step right to make room
+            while (gap > 0 && nums[gap - 1] > newBook) {
+                nums[gap] = nums[gap - 1];
+                gap--;
             }
-            nums[slot] = held;
+            nums[gap] = newBook;
         }
     }
+}
 
+// Run it locally: javac InsertionSortOptimal.java && java Main
+class Main {
     public static void main(String[] args) {
-        InsertionSortOptimal solver = new InsertionSortOptimal();
-        int[] nums = new int[]{7, 2, 8, 1, 5};
-        solver.insertionSort(nums);
-        System.out.println(Arrays.toString(nums));
+        int[] nums = {7, 2, 8, 1, 5};
+        new Solution().insertionSort(nums);
+        System.out.println(java.util.Arrays.toString(nums));
     }
 }

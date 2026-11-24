@@ -1,16 +1,18 @@
 function insertionSort(nums) {
-    const size = nums.length;
-    for (let next = 1; next < size; next++) {
-        const held = nums[next];
-        let slot = next;
-        while (slot > 0 && nums[slot - 1] > held) {
-            nums[slot] = nums[slot - 1];
-            slot--;
+    // everything left of newBookSpot is already sorted
+    for (let newBookSpot = 1; newBookSpot < nums.length; newBookSpot++) {
+        const newBook = nums[newBookSpot];
+        let gap = newBookSpot;
+        // shift every bigger book one step right to make room
+        while (gap > 0 && nums[gap - 1] > newBook) {
+            nums[gap] = nums[gap - 1];
+            gap--;
         }
-        nums[slot] = held;
+        nums[gap] = newBook;
     }
 }
 
+// Run it locally: node insertionSortOptimal.js
 const nums = [7, 2, 8, 1, 5];
 insertionSort(nums);
-console.log(JSON.stringify(nums).replace(/,/g, ', '));
+console.log(nums);

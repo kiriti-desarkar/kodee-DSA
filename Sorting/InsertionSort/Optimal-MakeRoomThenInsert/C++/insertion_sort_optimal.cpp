@@ -1,43 +1,30 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
     void insertionSort(vector<int>& nums) {
-        int size = nums.size();
-        for (int next = 1; next < size; next++) {
-            int held = nums[next];
-            int slot = next;
-            while (slot > 0 && nums[slot - 1] > held) {
-                nums[slot] = nums[slot - 1];
-                slot--;
+        // everything left of newBookSpot is already sorted
+        for (int newBookSpot = 1; newBookSpot < (int)nums.size(); newBookSpot++) {
+            int newBook = nums[newBookSpot];
+            int gap = newBookSpot;
+            // shift every bigger book one step right to make room
+            while (gap > 0 && nums[gap - 1] > newBook) {
+                nums[gap] = nums[gap - 1];
+                gap--;
             }
-            nums[slot] = held;
+            nums[gap] = newBook;
         }
     }
 };
 
-void print(const vector<int>& values) {
-    cout << "[";
-    for (size_t spot = 0; spot < values.size(); spot++) {
-        if (spot > 0) {
-            cout << ", ";
-        }
-        cout << values[spot];
-    }
-    cout << "]" << endl;
-}
-
-void print(const vector<vector<int>>& grid) {
-    for (const vector<int>& line : grid) {
-        print(line);
-    }
-}
-
+// Run it locally: g++ insertion_sort_optimal.cpp -o insertion && ./insertion
 int main() {
-    Solution solver;
     vector<int> nums = {7, 2, 8, 1, 5};
-    solver.insertionSort(nums);
-    print(nums);
-    return 0;
+    Solution().insertionSort(nums);
+    for (int value : nums) {
+        cout << value << " ";
+    }
+    cout << endl;
 }
