@@ -3,11 +3,11 @@
 Partition around the last number (pivot): scan moves left to right, and everything ≤ pivot is swapped behind the wall. The pivot lands at the wall, then sort each side.
 
 ```
-sortRange(low, high):
+quickSortHelper(low, high):
     if low >= high: return
     pivotSpot = partition(low, high)
-    sortRange(low, pivotSpot - 1)
-    sortRange(pivotSpot + 1, high)
+    quickSortHelper(low, pivotSpot - 1)
+    quickSortHelper(pivotSpot + 1, high)
 
 partition(low, high):
     pivot = nums[high]
