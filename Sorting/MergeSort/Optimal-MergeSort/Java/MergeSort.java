@@ -1,49 +1,47 @@
-import java.util.Arrays;
-
-public class MergeSort {
-    static void merge(int[] nums, int low, int mid, int high) {
-        int[] temp = new int[high - low + 1];
-        int left = low;
-        int right = mid + 1;
-        int spot = 0;
-        while (left <= mid && right <= high) {
-            if (nums[left] <= nums[right]) {
-                temp[spot] = nums[left];
-                left++;
-            } else {
-                temp[spot] = nums[right];
-                right++;
-            }
-            spot++;
-        }
-        while (left <= mid) {
-            temp[spot] = nums[left];
-            left++;
-            spot++;
-        }
-        while (right <= high) {
-            temp[spot] = nums[right];
-            right++;
-            spot++;
-        }
-        for (spot = 0; spot < temp.length; spot++) {
-            nums[low + spot] = temp[spot];
-        }
+class Solution {
+    public void mergeSort(int[] nums) {
+        mergeSortHelper(nums, 0, nums.length - 1);
     }
-    
-    static void mergeSort(int[] nums, int low, int high) {
+
+    private void mergeSortHelper(int[] nums, int low, int high) {
+        // one number is already sorted
         if (low >= high) {
             return;
         }
         int mid = low + (high - low) / 2;
-        mergeSort(nums, low, mid);
-        mergeSort(nums, mid + 1, high);
+        mergeSortHelper(nums, low, mid);
+        mergeSortHelper(nums, mid + 1, high);
         merge(nums, low, mid, high);
     }
 
+    private void merge(int[] nums, int low, int mid, int high) {
+        int[] merged = new int[high - low + 1];
+        int leftSpot = low;
+        int rightSpot = mid + 1;
+        int mergedSpot = 0;
+        // always take the smaller front number of the two sorted halves
+        while (leftSpot <= mid && rightSpot <= high) {
+            if (nums[leftSpot] <= nums[rightSpot]) {
+                merged[mergedSpot++] = nums[leftSpot++];
+            } else {
+                merged[mergedSpot++] = nums[rightSpot++];
+            }
+        }
+        while (leftSpot <= mid) {
+            merged[mergedSpot++] = nums[leftSpot++];
+        }
+        while (rightSpot <= high) {
+            merged[mergedSpot++] = nums[rightSpot++];
+        }
+        System.arraycopy(merged, 0, nums, low, merged.length);
+    }
+}
+
+// Run it locally: javac MergeSort.java && java Main
+class Main {
     public static void main(String[] args) {
         int[] nums = {5, 2, 8, 1};
-        mergeSort(nums, 0, nums.length - 1);
-        System.out.println(Arrays.toString(nums)); // [1, 2, 5, 8]
+        new Solution().mergeSort(nums);
+        System.out.println(java.util.Arrays.toString(nums));
     }
 }
