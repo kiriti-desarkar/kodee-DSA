@@ -54,6 +54,7 @@ Arrays/Easy/MajorityElement/
 | 21 | Rotate Matrix by 90 Degrees | [48](https://leetcode.com/problems/rotate-image/) | [Arrays/Medium/RotateMatrix](Arrays/Medium/RotateMatrix) | Second grid, Transpose + reverse |
 | 22 | Set Matrix Zeroes | [73](https://leetcode.com/problems/set-matrix-zeroes/) | [Arrays/Medium/SetMatrixZeroes](Arrays/Medium/SetMatrixZeroes) | Copy, Marker arrays, Mark inside the grid |
 | 23 | Two Sum (+ Two Sum II, sorted) | [1](https://leetcode.com/problems/two-sum/), [167](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | [Arrays/Easy/TwoSum](Arrays/Easy/TwoSum) | Every pair, Hash map (one pass), Two pointers (sorted) |
+| 24 | 3Sum | [15](https://leetcode.com/problems/3sum/) | [Arrays/Medium/ThreeSum](Arrays/Medium/ThreeSum) | Every triplet, Hash set (fix one + Two Sum), Sort + two pointers |
 
 New problems are added after each episode is released.
 
