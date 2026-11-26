@@ -1,18 +1,16 @@
-# Better: fix first, then Two Sum with a hash set
-
+# R2 Better: fix first, then Two Sum with a hash set
 ```
 found = empty set
-for first = 0 to n-1:
-    seen = empty set                     (numbers between first and second)
-    for second = first+1 to n-1:
+for each first from 0:
+    seen = empty set
+    for each second after first:
         need = -(nums[first] + nums[second])
-        if need in seen:
-            found.add( sorted(nums[first], nums[second], need) )
-        seen.add(nums[second])
-return found as a list
+        if need in seen: sort the three, add to found
+        add nums[second] to seen
+return everything in found
 ```
-Derivation: in the brute, once first and second are chosen, the third loop only asks "is -(first + second) somewhere after second?". That is Two Sum's question, so remember what you've seen instead of scanning.
-Why seen is emptied for every first: it must hold only numbers AFTER first, so the third number is never first itself or a number already used as first.
-Check first, then remember (as in Two Sum), so second never pairs with itself.
-Cost with 20 numbers: at most 19 + 18 + ... + 1 = 190 checks.
-Complexity: O(n²) time, O(n) for seen plus the set of triplets.
+Derivation: in one row of the brute, first and second are fixed and third walks the whole rest of the row looking for ONE number: minus first, minus second. That is Two Sum with target minus first, so remember the cards second has passed.
+Two rules: `seen` empties when first moves (earlier cards already had their turn as first), and check BEFORE you add (a card can't pair with itself).
+What a hash set is: an array of slots. A formula turns a number into a hash code, which picks one slot; to check a number, the same formula jumps straight to that slot. Two numbers in one slot is a collision: the slot keeps both and equals tells them apart. O(1) on average.
+Check on the nine cards: 36 checks, 5 hits, 2 kept; `found` still throws the repeats away.
+Complexity: O(n²) time, O(n) extra space for seen (plus the set).

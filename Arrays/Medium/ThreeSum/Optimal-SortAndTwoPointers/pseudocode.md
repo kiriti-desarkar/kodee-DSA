@@ -1,32 +1,20 @@
-# Optimal: sort, fix first, squeeze with two pointers
-
+# R3 Optimal: sort, squeeze, skip the repeats
 ```
 sort nums
-for first = 0 to n-3:
-    if first > 0 and nums[first] == nums[first-1]: skip      (same first, same triplets)
-    left = first + 1;  right = n - 1
+triplets = empty list
+for each first, up to the third from the end:
+    same as the one before? skip
+    left = first + 1;  right = last
     while left < right:
         sum = nums[first] + nums[left] + nums[right]
-        if sum < 0: left = left + 1
-        else if sum > 0: right = right - 1
-        else:
-            add [nums[first], nums[left], nums[right]]
-            left = left + 1;  right = right - 1
-            while left < right and nums[left] == nums[left-1]: left = left + 1
-            while left < right and nums[right] == nums[right+1]: right = right - 1
-return the triplets
+        too small: left up;  too big: right down
+        zero: add the triplet, left up, right down
+            skip equal numbers: left up, right down
+return triplets
 ```
-Dry run on [-1, 0, 1, 2, -1, -4], sorted to [-4, -1, -1, 0, 1, 2]:
-
-| first | left, right | sum | move |
-|---|---|---|---|
-| -4 | -1, 2 | -3 | too small, left up (three more times, all too small) |
-| -1 | -1, 2 | 0 | add [-1, -1, 2], both move |
-| -1 | 0, 1 | 0 | add [-1, 0, 1], both move, left passes right |
-| -1 (again) | | | same as last first: skip |
-| 0 | 1, 2 | 3 | too big, right down, done |
-
-Answer: [[-1, -1, 2], [-1, 0, 1]].
-Why sort: it gives the Two Sum II squeeze (O(1) space instead of seen) and puts repeats side by side, so no set of triplets is needed.
-Proof the squeeze never skips a triplet: if the sum is too small, nums[left] with ANY right still in range is at most that sum, so nums[left] can't be in a triplet with this first: drop left. Too big: drop right, by the mirror argument.
-Complexity: O(n log n) to sort + O(n²) to squeeze = O(n²) time; O(1) extra space besides sorting and the answer.
+Derivation: the repeats came from equal numbers far apart (three -3s, two 4s). Sort the row and they sit side by side, so a repeat is "same as my neighbour? skip". A sorted row also gives Two Sum II's squeeze, so `seen` goes too.
+Why the squeeze never misses: too small means left with every card up to right is too small, so left is useless: drop it. Too big works the other way for right.
+Why it is faster: for one first on nine cards, the brute tries 28 pairs of the cards after it; the squeeze drops one card per look, at most 7. Sorting costs n log n once, and we return numbers, not positions, so the new order is fine.
+Dry run on the sorted cards [-4, -3, -3, -3, 0, 2, 4, 4, 6]: first -4 squeezes to [-4, 0, 4], then right lands on the other 4: skip. First -3 finds [-3, -3, 6], then left lands on another -3: skip. The next two -3s as first: skip. First 0, 2 and 4 find nothing. Two triplets, 15 looks, no memory, no set.
+Bonus (not in the code): once nums[first] > 0, stop early.
+Complexity: O(n²) time, O(1) extra space apart from the answer.

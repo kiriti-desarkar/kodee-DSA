@@ -1,14 +1,14 @@
-# Brute: try every triplet
-
+# R1 Brute: every triplet
 ```
 found = empty set
-for first = 0 to n-1:
-    for second = first+1 to n-1:
-        for third = second+1 to n-1:
+for each first from 0:
+    for each second after first:
+        for each third after second:
             if nums[first] + nums[second] + nums[third] == 0:
-                found.add( sorted(nums[first], nums[second], nums[third]) )
-return found as a list
+                sort the three, add to found
+return everything in found
 ```
-Why sort the triplet: in [-1, 0, 1, 2, -1, -4], positions (0, 1, 2) give -1, 0, 1 and positions (1, 2, 4) give 0, 1, -1. Same three numbers, different order. Sorted, both become [-1, 0, 1], so the set keeps one.
-Cost with 20 numbers: 20·19·18 / 6 = 1140 triplets to try.
-Complexity: O(n³) time (plus a tiny sort of 3 numbers), extra space for the set of triplets.
+Why each loop starts after the one before: no position is used twice, and each group of three positions is tried once.
+Why sort before storing: -1, 0, 1 and 0, 1, -1 are the same triplet; sorted, they look the same, so the set keeps one.
+Check on the nine cards [2, 4, -4, -3, 6, 0, -3, -3, 4]: 84 tries, 5 hits, 2 kept ([-4, 0, 4] and [-3, -3, 6]); the other 3 hits are repeats the set throws away.
+Cost: n × (n − 1) × (n − 2) ÷ 6 tries. 9 cards = 84. O(n³) time, the set is extra space.
