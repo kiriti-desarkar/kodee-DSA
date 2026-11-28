@@ -55,6 +55,7 @@ Arrays/Easy/MajorityElement/
 | 22 | Set Matrix Zeroes | [73](https://leetcode.com/problems/set-matrix-zeroes/) | [Arrays/Medium/SetMatrixZeroes](Arrays/Medium/SetMatrixZeroes) | Copy, Marker arrays, Mark inside the grid |
 | 23 | Two Sum (+ Two Sum II, sorted) | [1](https://leetcode.com/problems/two-sum/), [167](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | [Arrays/Easy/TwoSum](Arrays/Easy/TwoSum) | Every pair, Hash map (one pass), Two pointers (sorted) |
 | 24 | 3Sum | [15](https://leetcode.com/problems/3sum/) | [Arrays/Medium/ThreeSum](Arrays/Medium/ThreeSum) | Every triplet, Hash set (fix one + Two Sum), Sort + two pointers |
+| 25 | 4Sum | [18](https://leetcode.com/problems/4sum/) | [Arrays/Medium/FourSum](Arrays/Medium/FourSum) | Every quad, Hash set (fix two + Two Sum), Sort + two pointers, k-Sum follow-up |
 
 New problems are added after each episode is released.
 
