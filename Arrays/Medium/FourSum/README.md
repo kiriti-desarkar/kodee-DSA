@@ -14,7 +14,7 @@ nums = [2, 2, 2, 2, 2],      target = 8   ->   [[2, 2, 2, 2]]
 | `Brute-EveryQuad/` | `first`, `second`, `third`, `fourth`, each after the one before; a hit is sorted and stored in a set `found`, so a repeat lands on the copy already there | O(n⁴) | the set |
 | `Better-HashSet/` | Fix `first` and `second`; the rest is Two Sum: `need = target - nums[first] - nums[second] - nums[third]`, look it up in `seen` (emptied for every pair), then add `nums[third]` | O(n³) | O(n) |
 | `Optimal-SortAndTwoPointers/` | Sort; fix `first` and `second`, squeeze `left` and `right`: too small → left up, too big → right down; skip repeated `first`, `second`, `left` and `right` | O(n³) | O(1) |
-| `Follow-Up-KSum/` | Any k: sort once, `kSum` fixes one number (`pick`) and asks `kSum` for k - 1 numbers after it; at k = 2 it is the squeeze | O(n^(k-1)) | O(k) for the calls |
+| `FollowUp-KSum/` | Any k: sort once, `kSum` fixes one number (`pick`) and asks `kSum` for k - 1 numbers after it; at k = 2 it is the squeeze | O(n^(k-1)) | O(k) for the calls |
 
 ## Rebuild it
 **Fix two. Squeeze the rest. Skip the repeats, mind the overflow.**
